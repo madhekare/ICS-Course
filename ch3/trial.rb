@@ -6,3 +6,5 @@ puts 'hi ' * 4
 puts '12' + '12'
 puts 12 + 12
 puts 'You\'re the best!'
+puts 'up\\down'
+puts 'up\down'

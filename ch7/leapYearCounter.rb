@@ -7,7 +7,7 @@ if start % 100 == 0 && start % 400 == 0
     puts start
     start = start + 1
 else
-  if start % 4 == 0
+  if start % 4 == 0 && start % 100 != 0
     puts start
     start = start + 1
   else

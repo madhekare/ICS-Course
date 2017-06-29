@@ -4,8 +4,7 @@ def ask question
     response = gets.chomp.downcase
     if response == 'yes'
       return true
-    end
-    if response == 'no'
+    elsif response == 'no'
       return false
     end
   end

@@ -12,23 +12,16 @@ letters.each.zip(abc.each) do |l,a|
 q = inp / a
 r = inp % a
 
-
-  if q >= 1
-    str.push l* (q)
-    inp = r
-
-  else
-    str.push ''
-    inp = r
-
+    if q >= 1
+      str.push l* (q)
+      inp = r
+    else
+      str.push ''
+      inp = r
+    end
   end
-
-
+return str.join('')
 end
-
-  return str.join('')
-end
-
 
 puts 'Please enter a number that you want to be converted to New Roman Numerals upper limit = 3000'
 response = gets.chomp.to_i

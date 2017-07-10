@@ -1,17 +1,15 @@
 def birthdays names
 birthday_hash={}
-name = 'birthdays.txt'
-File.open name, 'r' do |l|
-  n = 0
-    while n < IO.readlines('birthdays.txt').size
-      str = l.readline
-      ind = str.index('  ') - 2
-      s = str[0..ind]
-      birthday_hash[s] = str[(ind + 4)..(str.length - 7)]
-      n = n + 1
-   end
-end
-puts 'Their next birthday is on: ' + birthday_hash[names]
+File.readlines('birthdays.txt').each do |l|
+      ind = l.index('  ') - 2
+      s = l[0..ind]
+      birthday_hash[s] = l[(ind + 4)..(l.length - 7)]
+  end
+  if birthday_hash.has_key? names
+    puts 'Their next birthday is on: ' + birthday_hash[names]
+  else
+   puts 'This name is not in your list of birthdays!'
+  end
 end
 
 puts 'Please enter a Name: '

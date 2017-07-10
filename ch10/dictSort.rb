@@ -3,6 +3,7 @@ def sort_alpha unsorted_array
 end
 
 def get_words
+puts 'Please enter words on different lines and then press enter twice when you are done.'
 words = []
   while true
     n = gets.chomp
@@ -18,15 +19,15 @@ end
 def recursively_sort unsorted_array, sorted_array
   if unsorted_array.length != 0
   minw = unsorted_array[0]
-    unsorted_array.each do |w|
+  n = 0
+    unsorted_array.each_with_index do |w,i|
       if minw.upcase > w.upcase
         minw = w
-      else
-        minw = minw
+        n = i
       end
     end
     sorted_array.push minw
-    unsorted_array.delete minw
+    unsorted_array.delete_at n
 recursively_sort unsorted_array, sorted_array
   else
     return sorted_array

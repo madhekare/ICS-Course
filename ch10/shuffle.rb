@@ -17,9 +17,9 @@ end
 
 def recursively_shuffle unshuffled_array, shuffled_array
   if unshuffled_array.length != 0
-    w = unshuffled_array[rand(unshuffled_array.length)]
-    shuffled_array.push w
-    unshuffled_array.delete w
+    w = rand(unshuffled_array.length)
+    shuffled_array.push unshuffled_array[w]
+    unshuffled_array.delete_at w
 recursively_shuffle unshuffled_array, shuffled_array
   else
     return shuffled_array

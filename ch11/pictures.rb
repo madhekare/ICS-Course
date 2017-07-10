@@ -12,13 +12,19 @@ new_name = if pic_number < 10
   else
     "#{batch_name}#{pic_number}.jpg"
   end
-if File.exist
-  File.rename name, new_name
+if File.exist? name
+  puts 'Would you like to overwrite? (Y/N)'
+  if gets.chomp == 'Y'
+    File.rename name, new_name
   #  Finally, we increment the counter.
-  pic_number = pic_number + 1
+    pic_number = pic_number + 1
+  else
+    puts 'duplicate file!'
+    exit
 else
-  puts 'ERROR avoid overwriting!'
-  break
+  File.rename name, new_name
+#  Finally, we increment the counter.
+  pic_number = pic_number + 1
 end
 end
 puts # This is so we aren't on progress bar line.

@@ -11,7 +11,6 @@ puts 'Please enter words on different lines and then press enter twice when you 
       words.push n
     else
       return words
-      break
     end
   end
 end

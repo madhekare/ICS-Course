@@ -11,7 +11,6 @@ words = []
       words.push n
     else
       return words
-      break
     end
   end
 end

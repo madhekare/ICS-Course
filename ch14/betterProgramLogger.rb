@@ -1,29 +1,30 @@
-$spaces = "  "
-$depth = 0
-def log string_description, &block
-  puts $spaces*$depth + "Beginning " + string_description
-  block.call
+def log string_description, spaces, depth, &block
+  puts spaces*depth + "Beginning " + string_description
+  output = block.call
+  puts spaces*depth + string_description + " finished and returned: " + output.to_s
 end
-log "outer block" do
+
+spaces = " "
+depth = 0
+bstatus=false
+log "outer block", spaces, depth do
    n=1
-   bstatus=false
    hi = "HEYYY"
-   $depth = $depth + 1
-    log "inside block" do
+   depth = depth + 1
+    log "inside block", spaces, depth do
       3.times do
       n=n*3
       end
-        $depth = $depth + 1
-        log "insidex2 block" do
-          hi = "What\'s up?"
+        depth = depth + 1
+        log "insidex2 block", spaces, depth do
+          hi
         end
-        puts $spaces*$depth + "insidex2 finished and returned: " + hi
-        $depth = $depth - 1
+        depth = depth - 1
+        n
       end
-      puts $spaces*$depth + "inside block finished and returned: " + n.to_s
-    log "another block" do
-      puts $spaces*$depth + "another block finished and returned: YES!"
+    log "another block" , spaces, depth do
+    bstatus
     end
-$depth = $depth - 1
-puts "We are done with outer block! returned: "+bstatus.to_s
+depth = depth - 1
+bstatus = true
 end

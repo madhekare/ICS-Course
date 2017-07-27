@@ -1,20 +1,20 @@
 def log string_description, &block
   puts 'Beginning ' + string_description
-  block.call
+  num=block.call
+  puts string_description + ' finished and returned: ' + num.to_s
 end
 
+bstatus=false
 log 'outer block' do
    n=1
-   bstatus=false
    log 'some little block' do
      3.times do
        n=n*3
     end
+    n
    end
-   puts 'some little block finished and returned: ' + n.to_s
    log 'another block' do
-
-     puts 'another block finished and returned: YES!'
+     bstatus
    end
-puts 'We are done with outer block! returned: '+bstatus.to_s
+   bstatus = true
 end

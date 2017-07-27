@@ -106,7 +106,7 @@ name = gets.chomp
 pet = Dragon.new name
 while true
   puts "\nHow would you like to care for your baby dragon? \n"
-  puts "You can feed (type f), toss (type t), walk (type w), rock (type r), or put him/her to bed (type p)!"
+  puts "You can feed (type f), toss (type t), walk (type w), rock (type r), put him/her to bed (type p), or exit (x)!"
   value = gets.chomp
   if value == "t"
     pet.toss
@@ -116,7 +116,11 @@ while true
     pet.walk
   elsif value == "r"
     pet.rock
-  else
+  elsif value == "x"
+    exit
+  elsif value == "p"
     pet.put_to_bed
+  else
+    puts 'Please enter a letter (f, t, w, r, p, or x)'
   end
 end

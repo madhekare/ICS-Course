@@ -10,8 +10,13 @@ class Die
   end
 
   def cheat
-    puts 'what number?'
-    @number_showing = gets.chomp
+    puts 'what number? (1-6)'
+    num = gets.chomp.to_i
+    if 1 <= num && num <=6
+    @number_showing = num
+    else
+    puts 'Number needs to be from 1-6!'
+    end
   end
 
   def showing
